@@ -1,9 +1,44 @@
+@import "/src/styles/theme.scss";
+
+$index-radius: 50px;
+
 .index-wrapper {
   background-color: $mt-color;
+  font-family: PingFangSC-Regular, PingFang SC;
   .index-container {
-    padding: 130px 0;
-    border-radius: 10px;
+    padding: 20px;
+    border-top-left-radius: $index-radius;
+    border-top-right-radius: $index-radius;
     background-color: #fff;
     overflow: hidden;
+  }
+}
+.search-bar {
+  $search-bar-height: 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $search-bar-height;
+  line-height: $search-bar-height;
+  border: 2px solid $mt-color;
+  border-radius: $index-radius;
+  overflow: hidden;
+  &-icon {
+    margin-left: 20px;
+  }
+  &-text {
+    flex: 1;
+    padding: 0 10px;
+    color: #999;
+    font-size: 24px;
+  }
+  &-btn {
+    height: 100%;
+    padding: 0 28px;
+    color: #333;
+    border-radius: $index-radius;
+    background-color: $mt-color;
+    font-size: 26px;
   }
 }

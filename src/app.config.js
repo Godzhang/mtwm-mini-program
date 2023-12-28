@@ -1,8 +1,13 @@
 export default defineAppConfig({
-  pages: ["pages/index/index", "pages/order/order", "pages/mine/mine"],
+  pages: [
+    "pages/index/index",
+    "pages/order/order",
+    "pages/mine/mine",
+    "pages/search/search",
+  ],
   window: {
     backgroundTextStyle: "light",
-    navigationBarBackgroundColor: "#ffd161",
+    navigationBarBackgroundColor: "#fae653",
     navigationBarTitleText: "首页",
     navigationBarTextStyle: "black",
   },
