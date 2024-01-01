@@ -3,6 +3,7 @@ import Taro, { useLoad } from "@tarojs/taro";
 import { AtIcon, AtTag } from "taro-ui";
 import { useState } from "react";
 import NavMenu from "./components/nav-menu";
+import SHot from "./components/s-hot";
 import "./index.scss";
 
 export default function Index() {
@@ -62,6 +63,7 @@ export default function Index() {
           </View>
         </View>
         <NavMenu />
+        {/* <SHot /> */}
       </View>
     </View>
   );
