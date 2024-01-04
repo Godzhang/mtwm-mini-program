@@ -5,6 +5,9 @@ import { useState } from "react";
 import NavMenu from "./components/nav-menu";
 import SHot from "./components/s-hot";
 import "./index.scss";
+import RestaurantList from "./components/restaurant-list";
+import FilterMenu from "./components/filter-menu";
+import { useEffect } from "react";
 
 export default function Index() {
   const [placeholder, setPlaceholder] = useState("请输入商家或商品名称");
@@ -20,6 +23,14 @@ export default function Index() {
   useLoad(() => {
     setRecommendWord();
   });
+
+  useEffect(() => {
+    // Taro.request({
+    //   url: "/home/menu",
+    // }).then((res) => {
+    //   console.log(res);
+    // });
+  }, []);
 
   const setRecommendWord = () => {
     const words = ["黄焖鸡", "砂锅粥"];
@@ -64,6 +75,8 @@ export default function Index() {
         </View>
         <NavMenu />
         {/* <SHot /> */}
+        <FilterMenu />
+        <RestaurantList />
       </View>
     </View>
   );

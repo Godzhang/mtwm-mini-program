@@ -23,6 +23,9 @@ export default defineConfig(async (merge, { command, mode }) => {
     sass: {
       resource: path.resolve(__dirname, "..", "src/styles/index.scss"),
     },
+    alias: {
+      "@": path.resolve(__dirname, "..", "src"),
+    },
     copy: {
       patterns: [],
       options: {},
