@@ -1,0 +1,32 @@
+.filter-menu {
+  position: relative;
+  margin-top: 20px;
+}
+.quick-tags {
+  position: relative;
+  width: 92%;
+  &-area {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    .tag {
+      background-color: #fff;
+      margin-right: 20px;
+    }
+  }
+}
+.quick-tags-gradient-mask {
+  position: absolute;
+  top: 0;
+  right: 8%;
+  height: 100%;
+  width: 5%;
+  background-image: linear-gradient(to left, #f6f6f6 0%, rgba(0, 0, 0, 0) 100%);
+}
+.menu-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
