@@ -1,6 +1,6 @@
 .filter-menu {
   position: relative;
-  margin-top: 20px;
+  padding: 20px 0;
 }
 .quick-tags {
   position: relative;
@@ -9,11 +9,12 @@
     display: flex;
     align-items: center;
     white-space: nowrap;
-    .tag {
-      background-color: #fff;
-      margin-right: 20px;
-    }
+
   }
+}
+.tag {
+  background-color: #fff;
+  margin-right: 20px;
 }
 .quick-tags-gradient-mask {
   position: absolute;

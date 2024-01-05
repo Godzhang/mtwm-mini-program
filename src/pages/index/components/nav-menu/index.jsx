@@ -65,9 +65,10 @@ export default function NavMenu() {
   return (
     <View className="nav-menu-container">
       <Swiper
+        className="swiper"
         ref={swiperRef}
         style={{ height: swiperViewHeight ? `${swiperViewHeight}px` : "auto" }}
-        className="swiper"
+        duration={200}
         onChange={(e) => changeSwiperHeight(e.detail.current)}
       >
         {pMenus.map((p, pIndex) => (

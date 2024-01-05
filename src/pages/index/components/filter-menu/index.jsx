@@ -27,6 +27,7 @@ export default function FilterMenu() {
             <AtTag
               className="tag"
               key={tag}
+              type="primary"
               active={selectTagsId.includes(tag)}
               onClick={() => onClickTag(tag)}
             >
