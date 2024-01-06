@@ -1,7 +1,7 @@
-import { View, Text } from "@tarojs/components";
+import { View, Text, ScrollView } from "@tarojs/components";
 import Taro, { useLoad } from "@tarojs/taro";
 import { AtIcon, AtTag } from "taro-ui";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import NavMenu from "./components/nav-menu";
 import SHot from "./components/s-hot";
 import "./index.scss";
@@ -19,6 +19,7 @@ export default function Index() {
     "砂锅粥",
     "便利店",
   ]);
+  const filterMenuRef = useRef(null);
 
   useLoad(() => {
     setRecommendWord();
@@ -45,10 +46,19 @@ export default function Index() {
     Taro.navigateTo({ url });
   };
 
+  const onContainerScroll = () => {
+    filterMenuRef.current.onScroll();
+  };
+
   return (
-    <View className="index-wrapper">
+    <ScrollView
+      className="index-wrapper"
+      enableFlex
+      scrollY
+      onScroll={onContainerScroll}
+    >
       <View className="index-container">
-        <View className="search-container">
+        <View className="search-container pd-container">
           <View className="search-bar" onClick={navigateToSearch}>
             <AtIcon
               value="search"
@@ -73,11 +83,15 @@ export default function Index() {
             ))}
           </View>
         </View>
-        <NavMenu />
+        <View className="pd-container">
+          <NavMenu />
+        </View>
         {/* <SHot /> */}
-        <FilterMenu />
-        <RestaurantList />
+        <FilterMenu ref={filterMenuRef} />
+        <View className="pd-container">
+          <RestaurantList />
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }

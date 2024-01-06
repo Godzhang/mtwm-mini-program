@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "mtwm-mini-program",
   "description": "仿美团外卖小程序",
-  "appid": "touristappid",
+  "appid": "wxdc154f548e6f7da3",
   "setting": {
     "urlCheck": true,
     "es6": false,

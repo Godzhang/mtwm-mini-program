@@ -1,13 +1,19 @@
 $index-radius: 60px;
 
+.pd-container {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .index-wrapper {
+  height: 100vh;
   background-color: $mt-color;
   font-family: PingFangSC-Regular, PingFang SC;
   .index-container {
-    padding: 24px;
+    padding: 24px 0;
     border-top-left-radius: $index-radius;
     border-top-right-radius: $index-radius;
-    background-image: linear-gradient(to bottom, #fff 0%, #f6f6f6 70%, #f6f6f6 100%);
+    background-image: linear-gradient(to bottom, #fff 0%, #f6f6f6 300px, #f6f6f6 100%);
     overflow: hidden;
   }
 }
