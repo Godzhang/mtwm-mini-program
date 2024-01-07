@@ -1,6 +1,6 @@
 $filter-menu-height: 60px;
 
-@mixin bgTranstion($attr: color, $duration: 0.2s) {
+@mixin bgTranstion($attr: color, $duration: 0.5s) {
   transition: background-#{$attr} $duration;
 }
 

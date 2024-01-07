@@ -58,10 +58,11 @@ const FilterMenu = forwardRef((props, ref) => {
           ))}
           <AtTag style={{ opacity: 0 }}></AtTag>
         </ScrollView>
-        <AtTag className="atag">123</AtTag>
-        {/* <View className="menu-icon-bg">
+        {/* <AtTag className="atag">123</AtTag> */}
+        {/* TODO: fix后按钮消失问题 */}
+        <View className="menu-icon-bg">
           <View className="at-icon at-icon-menu menu-icon"></View>
-        </View> */}
+        </View>
       </View>
     </View>
   );
