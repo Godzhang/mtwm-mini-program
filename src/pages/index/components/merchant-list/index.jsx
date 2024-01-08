@@ -1,8 +1,8 @@
 import { View } from "@tarojs/components";
 import "./index.scss";
 
-export default function RestaurantList(props) {
+export default function merchantList(props) {
   const data = props.data || [];
 
-  return <View className="restaurant-list"></View>;
+  return <View className="merchant-list"></View>;
 }

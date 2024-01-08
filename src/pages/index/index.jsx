@@ -5,9 +5,10 @@ import { useRef, useState } from "react";
 import NavMenu from "./components/nav-menu";
 import SHot from "./components/s-hot";
 import "./index.scss";
-import RestaurantList from "./components/restaurant-list";
+import MerchantList from "./components/merchant-list";
 import FilterMenu from "./components/filter-menu";
 import { useEffect } from "react";
+import { getMerchantList } from "../../services";
 
 export default function Index() {
   const [placeholder, setPlaceholder] = useState("请输入商家或商品名称");
@@ -19,9 +20,11 @@ export default function Index() {
     "砂锅粥",
     "便利店",
   ]);
+  const [merchantList, setMerchantList] = useState([]);
   const filterMenuRef = useRef(null);
 
   useLoad(() => {
+    requestIndexData();
     setRecommendWord();
   });
 
@@ -32,6 +35,13 @@ export default function Index() {
     //   console.log(res);
     // });
   }, []);
+
+  // 获取首页数据
+  const requestIndexData = async () => {
+    const merchantList = await getMerchantList();
+    console.log("merchantList:", merchantList);
+    setMerchantList(merchantList);
+  };
 
   const setRecommendWord = () => {
     const words = ["黄焖鸡", "砂锅粥"];
@@ -89,7 +99,7 @@ export default function Index() {
         {/* <SHot /> */}
         <FilterMenu ref={filterMenuRef} />
         <View className="pd-container">
-          <RestaurantList />
+          <MerchantList list={merchantList} />
         </View>
       </View>
     </ScrollView>
