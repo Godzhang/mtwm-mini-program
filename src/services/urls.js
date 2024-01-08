@@ -1,4 +1,4 @@
-const WxApiRoot = "http://localhost:3030";
+const WxApiRoot = "http://39.107.159.90:8002";
 
 const resolve = (url) => `${WxApiRoot}/${url}`;
 

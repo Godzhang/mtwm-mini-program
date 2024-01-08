@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { mainMenu, subMenu } from "./data";
 import "./index.scss";
+import { getElHeight, sleep } from "@/utils/utils";
 
 //http://iph.href.lu/100x300?text=自定义文字
 
@@ -24,6 +25,7 @@ export default function NavMenu() {
   useEffect(() => {
     const pMenus = getPaginationMenus(mainMenu, subMenu);
     setPMenus(pMenus);
+    changeSwiperHeight(0);
   }, []);
 
   const getPaginationMenus = (
@@ -57,31 +59,38 @@ export default function NavMenu() {
   };
 
   const changeSwiperHeight = async (current) => {
-    const ref = current === 0 ? swiperItem1 : swiperItem2;
-    setSwiperViewHeight(ref.current.offsetHeight);
+    const height = await getElHeight(`.menu-container-${current}`);
+    setSwiperViewHeight(height);
     setCurrent(current);
   };
 
   return (
     <View className="nav-menu-container">
       <Swiper
-        className="swiper"
         ref={swiperRef}
-        style={{ height: swiperViewHeight ? `${swiperViewHeight}px` : "auto" }}
+        style={{ height: swiperViewHeight ? `${swiperViewHeight}px` : "none" }}
         duration={200}
         onChange={(e) => changeSwiperHeight(e.detail.current)}
       >
         {pMenus.map((p, pIndex) => (
           <SwiperItem key={pIndex}>
             <View
-              className="menu-container"
+              className={[`menu-container`, `menu-container-${pIndex}`].join(
+                " "
+              )}
               ref={pIndex === 0 ? swiperItem1 : swiperItem2}
             >
               {p.map((menu, index) => (
                 <View className="menu-list" key={index}>
                   {menu.map((item) => (
                     <View className="menu-item" key={item.label}>
-                      <Image className="menu-item-img" src={item.iconUrl} />
+                      <Image
+                        className={classNames({
+                          "menu-item-img": true,
+                          "menu-item-img-main": item.isMain,
+                        })}
+                        src={item.iconUrl}
+                      />
                       <Text className="menu-item-label">{item.label}</Text>
                     </View>
                   ))}

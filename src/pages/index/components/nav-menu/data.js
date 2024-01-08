@@ -3,26 +3,31 @@ export const mainMenu = [
     iconUrl: "http://iph.href.lu/50x50",
     label: "美食",
     router: "",
+    isMain: true,
   },
   {
     iconUrl: "http://iph.href.lu/50x50",
     label: "甜点饮品",
     router: "",
+    isMain: true,
   },
   {
     iconUrl: "http://iph.href.lu/50x50",
     label: "超市便利",
     router: "",
+    isMain: true,
   },
   {
     iconUrl: "http://iph.href.lu/50x50",
     label: "蔬菜水果",
     router: "",
+    isMain: true,
   },
   {
     iconUrl: "http://iph.href.lu/50x50",
     label: "看病买药",
     router: "",
+    isMain: true,
   },
 ];
 
