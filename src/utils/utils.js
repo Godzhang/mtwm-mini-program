@@ -14,7 +14,6 @@ export function getElHeight(selector) {
     query.select(selector).boundingClientRect();
     query.exec((res) => {
       if (res && res[0]) {
-        console.log(res[0]);
         resolve(res[0].height);
       } else {
         reject("get element height failed");

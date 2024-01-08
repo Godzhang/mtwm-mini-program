@@ -9,6 +9,7 @@ import MerchantList from "./components/merchant-list";
 import FilterMenu from "./components/filter-menu";
 import { useEffect } from "react";
 import { getMerchantList } from "../../services";
+import goodsData from "./components/merchant-list/data";
 
 export default function Index() {
   const [placeholder, setPlaceholder] = useState("请输入商家或商品名称");
@@ -38,8 +39,9 @@ export default function Index() {
 
   // 获取首页数据
   const requestIndexData = async () => {
-    const merchantList = await getMerchantList();
-    console.log("merchantList:", merchantList);
+    // const merchantList = await getMerchantList();
+    // console.log("merchantList:", merchantList);
+    const merchantList = goodsData;
     setMerchantList(merchantList);
   };
 
