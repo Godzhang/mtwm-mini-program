@@ -1,9 +1,10 @@
-import { ScrollView, View } from "@tarojs/components";
+import { ScrollView, View, Text } from "@tarojs/components";
 import { forwardRef, useImperativeHandle, useState } from "react";
 import "./index.scss";
-import { AtTag } from "taro-ui";
 import classNames from "classnames";
 import Taro from "@tarojs/taro";
+import { Tag } from "@taroify/core";
+import { WapNav } from "@taroify/icons";
 
 const quickTags = ["津贴优惠", "跨天预订", "减配送费", "点评高分"];
 
@@ -44,24 +45,30 @@ const FilterMenu = forwardRef((props, ref) => {
           "sticky-menu": isSticky,
         })}
       >
-        <ScrollView scrollX className="quick-tags">
+        <ScrollView
+          className="quick-tags"
+          scrollX
+          enhanced
+          showScrollbar={false}
+        >
           {quickTags.map((tag) => (
-            <AtTag
-              className="tag"
+            <Tag
+              className={classNames({
+                tag: true,
+                active: selectTagsId.includes(tag),
+              })}
               key={tag}
-              type="primary"
-              active={selectTagsId.includes(tag)}
+              size="large"
               onClick={() => onClickTag(tag)}
             >
               {tag}
-            </AtTag>
+            </Tag>
           ))}
-          <AtTag style={{ opacity: 0 }}></AtTag>
+          <Tag style={{ opacity: 0 }}></Tag>
         </ScrollView>
-        {/* <AtTag className="atag">123</AtTag> */}
         {/* TODO: fix后按钮消失问题 */}
         <View className="menu-icon-bg">
-          <View className="at-icon at-icon-menu menu-icon"></View>
+          <WapNav className="menu-icon" />
         </View>
       </View>
     </View>

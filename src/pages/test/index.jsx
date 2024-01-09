@@ -2,7 +2,6 @@ import { View, Text, ScrollView, StickyHeader } from "@tarojs/components";
 import Taro, { useLoad } from "@tarojs/taro";
 import "./order.scss";
 import { useRef, useState } from "react";
-import { AtTag } from "taro-ui";
 
 export default function Order() {
   const [isSticky, setIsSticky] = useState(false);
@@ -39,7 +38,7 @@ export default function Order() {
       <View style={{ height: "300px", backgroundColor: "orange" }}></View>
       <View className="banner-box">
         <View className={["banner", isSticky ? "sticky" : ""].join(" ")}>
-          <AtTag className="tag">123</AtTag>
+          {/* <AtTag className="tag">123</AtTag> */}
         </View>
       </View>
       <View style={{ height: "3000px", backgroundColor: "#08c" }}></View>

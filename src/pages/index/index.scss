@@ -6,6 +6,9 @@ $index-radius: 60px;
 }
 
 .index-wrapper {
+  font-family: Monospaced Number, Chinese Quote, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif !important;
   height: 100vh;
   background-color: $mt-color;
   font-family: PingFangSC-Regular, PingFang SC;
@@ -13,7 +16,12 @@ $index-radius: 60px;
     padding: 24px 0;
     border-top-left-radius: $index-radius;
     border-top-right-radius: $index-radius;
-    background-image: linear-gradient(to bottom, #fff 0%, #f6f6f6 300px, #f6f6f6 100%);
+    background-image: linear-gradient(
+      to bottom,
+      #fff 0%,
+      #f6f6f6 350px,
+      #f6f6f6 100%
+    );
     overflow: hidden;
   }
 }
@@ -30,6 +38,7 @@ $index-radius: 60px;
   overflow: hidden;
   &-icon {
     margin-left: 20px;
+    color: #999;
   }
   &-text {
     flex: 1;
@@ -50,6 +59,10 @@ $index-radius: 60px;
   display: flex;
   align-items: center;
   margin-top: 15px;
+  &-item {
+    background-color: #f1f1f1;
+    color: #333;
+  }
   &-item + &-item {
     margin-left: 15px;
   }

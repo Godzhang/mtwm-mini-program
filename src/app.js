@@ -1,7 +1,7 @@
 import { useLaunch } from "@tarojs/taro";
-// import "taro-ui/dist/style/index.scss";
 import "./app.scss";
 import "@/api";
+import { View } from "@tarojs/components";
 
 function App({ children }) {
   useLaunch(() => {

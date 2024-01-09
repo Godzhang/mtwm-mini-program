@@ -2,7 +2,6 @@ import { View, Text, ScrollView, StickyHeader } from "@tarojs/components";
 import Taro, { useLoad } from "@tarojs/taro";
 import "./order.scss";
 import { useRef, useState } from "react";
-import { AtTag } from "taro-ui";
 import OrderLogin from "./components/login";
 
 export default function Order() {

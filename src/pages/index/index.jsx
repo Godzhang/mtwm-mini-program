@@ -1,7 +1,8 @@
 import { View, Text, ScrollView } from "@tarojs/components";
 import Taro, { useLoad } from "@tarojs/taro";
-import { AtIcon, AtTag } from "taro-ui";
 import { useRef, useState } from "react";
+import { Tag } from "@taroify/core";
+import { Search } from "@taroify/icons";
 import NavMenu from "./components/nav-menu";
 import SHot from "./components/s-hot";
 import "./index.scss";
@@ -72,26 +73,21 @@ export default function Index() {
       <View className="index-container">
         <View className="search-container pd-container">
           <View className="search-bar" onClick={navigateToSearch}>
-            <AtIcon
-              value="search"
-              size="12"
-              color="#666"
-              className="search-bar-icon"
-            />
+            <Search className="search-bar-icon" />
             <Text className="search-bar-text">{placeholder}</Text>
             <View className="search-bar-btn">搜索</View>
           </View>
           <View className="search-tags">
             {searchTags.map((tag) => (
-              <AtTag
+              <Tag
                 className="search-tags-item"
-                size="small"
-                circle
+                shape="rounded"
+                size="medium"
                 key={tag}
                 onClick={() => navigateToSearch(tag)}
               >
                 {tag}
-              </AtTag>
+              </Tag>
             ))}
           </View>
         </View>
