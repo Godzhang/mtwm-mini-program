@@ -6,20 +6,20 @@ export const request = (url, data = {}, method = "GET", config = {}) => {
     Taro.request({
       url,
       data,
-      method,
+      method: method.toUpperCase(),
       header: {
         "Content-Type": "application/json",
         ...config,
       },
       success: function (res) {
-        if (res.statusCode === 200) {
-          const code = res.data?.code;
+        const { statusCode, data } = res;
+        if (statusCode === 200) {
           // 0 表示正常返回数据
-          if (code === 0) {
-            resolve(res.data.content);
+          if (data.code === 0) {
+            resolve(data.content);
           } else {
-            showErrorToast(res.data.message);
-            reject(res.data.message);
+            showErrorToast(data.message);
+            reject(data.message);
           }
         }
       },
