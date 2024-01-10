@@ -1,8 +1,14 @@
 .merchant-list {
-  height: 3000px;
-}
-.merchant-item {
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
+  // height: 3000px;
+  .merchant-item {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  .merchant-item + .merchant-item {
+    margin-top: 25px;
+  }
+  .merchant-cover {
+    width: 100%;
+  }
 }

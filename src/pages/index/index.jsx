@@ -1,5 +1,5 @@
-import { View, Text, ScrollView } from "@tarojs/components";
-import Taro, { useLoad } from "@tarojs/taro";
+import { View, Text, ScrollView, Image } from "@tarojs/components";
+import Taro, { useLoad, usePageScroll } from "@tarojs/taro";
 import { useRef, useState } from "react";
 import { Tag } from "@taroify/core";
 import { Search } from "@taroify/icons";

@@ -1,3 +1,6 @@
+$main-img-size: 100px;
+$sub-img-size: 60px;
+
 .nav-menu-container {
   position: relative;
   padding: 30px 0 15px 0;
@@ -18,12 +21,12 @@
   &-img {
     display: block;
     font-size: 0;
-    width: 40px;
-    height: 40px;
+    width: $sub-img-size;
+    height: $sub-img-size;
   }
   &-img-main {
-    width: 50px;
-    height: 50px;
+    width: $main-img-size;
+    height: $main-img-size;
   }
   &-label {
     margin-top: 5px;
