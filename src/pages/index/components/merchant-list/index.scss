@@ -1,14 +1,27 @@
 .merchant-list {
-  // height: 3000px;
-  .merchant-item {
+  .merchant-panel {
     padding: 10px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 15px;
   }
-  .merchant-item + .merchant-item {
+  .merchant-panel + .merchant-panel {
     margin-top: 25px;
   }
-  .merchant-cover {
+  .merchant-img {
     width: 100%;
+  }
+  .merchant-title {
+    .ticket {
+      height: 40px;
+      padding: 0 5px;
+    }
+    .title {
+      width: 90%;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .medal {
+      height: 40px;
+    }
   }
 }

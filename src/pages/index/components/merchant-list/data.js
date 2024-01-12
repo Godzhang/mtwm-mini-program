@@ -453,6 +453,9 @@ const goodsData = [
         name: "同庆点心",
       },
     ],
+    //
+    hasPromotion: true,
+    isGolden: true,
   },
   {
     goodImg: "src/assets/img/goods/goods-img2.png",
