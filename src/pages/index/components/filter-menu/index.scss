@@ -18,29 +18,29 @@ $filter-padding-y: 20px;
   padding: $filter-padding-y 0;
   background-color: #f6f6f6;
   @include bgTranstion;
-}
-.quick-tags {
-  display: flex;
-  align-items: center;
-  position: relative;
-  white-space: nowrap;
-  width: 90%;
-  height: 100%;
-}
-.tag {
-  display: inline-block;
-  text-align: center;
-  width: 120px;
-  height: $filter-menu-height;
-  line-height: $filter-menu-height;
-  padding: 0 30px;
-  margin-left: 24px;
-  font-size: 24px;
-  background-color: #fff;
-  color: #666;
-  @include bgTranstion;
-  &.active {
-    background-color: $mt-color;
+  .quick-tags {
+    display: flex;
+    align-items: center;
+    position: relative;
+    white-space: nowrap;
+    width: 90%;
+    height: 100%;
+  }
+  .tag {
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+    height: $filter-menu-height;
+    line-height: $filter-menu-height;
+    padding: 0 30px;
+    margin-left: 24px;
+    font-size: 24px;
+    background-color: #fff;
+    color: #666;
+    @include bgTranstion;
+    &.active {
+      background-color: $mt-color;
+    }
   }
 }
 .menu-icon-bg {
