@@ -1,27 +1,115 @@
 .merchant-list {
+  $panel-height: 200px;
   .merchant-panel {
-    padding: 10px;
+    display: flex;
+    align-items: start;
+    padding: 15px;
     background-color: #fff;
     border-radius: 15px;
+    height: $panel-height;
+    overflow: hidden;
+    &.expand {
+      height: auto;
+    }
   }
   .merchant-panel + .merchant-panel {
     margin-top: 25px;
   }
   .merchant-img {
-    width: 100%;
+    flex: 0 0 $panel-height;
+    margin-right: 15px;
+    Image {
+      width: 100%;
+    }
+  }
+  .merchant-info {
+    flex: 1;
   }
   .merchant-title {
+    width: 460px;
     .ticket {
       height: 40px;
       padding: 0 5px;
     }
     .title {
-      width: 90%;
+      flex: 1;
       font-size: 28px;
       font-weight: bold;
     }
     .medal {
       height: 40px;
+    }
+  }
+  .merchant-text {
+    font-size: 22px;
+    color: #999;
+
+  }
+  .merchant-sales {
+    @extend .merchant-text;
+    .score {
+      color: rgb(241, 111, 150);
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .type {
+      padding: 2px 10px;
+      font-size: 18px;
+      color: #333;
+      background-image: linear-gradient(to right, rgb(250, 227, 118), rgb(226,189,128));
+      border-radius: 8px;
+    }
+    .type-fast {
+      color: rgb(244, 162, 86);
+      border: 1px solid $mt-color;
+      background-image: none;
+    }
+  }
+  .merchant-express {
+    @extend .merchant-text;
+  }
+  .merchant-comment {
+    .comment-tag {
+      padding: 2px 10px;
+      border-radius: 5px;
+      background-color: rgb(254, 248, 226);
+      color: rgb(245, 152, 101);
+      font-size: 20px;
+      &.medal {
+        background-color: rgb(250, 245, 233);
+        color: rgb(163, 120, 140)
+      }
+      .medal-img {
+        height: 100%;
+        margin-right: 5px;
+      }
+    }
+  }
+  .merchant-promotion {
+    position: relative;
+    margin-top: 10px;
+    height: 36px;
+    overflow: hidden;
+    &.expand {
+      height: auto;
+    }
+    &-text {
+      border: 1px solid #f00;
+      border-radius: 8px;
+      color: #f00;
+      padding: 0 8px;
+      font-size: 20px;
+    }
+    .expand-btn {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .arrow {
+        font-size: 20px;
+      }
     }
   }
 }

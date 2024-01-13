@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Image } from "@tarojs/components";
-import Taro, { useLoad, usePageScroll } from "@tarojs/taro";
+import Taro, { useLoad } from "@tarojs/taro";
 import { useRef, useState } from "react";
 import { Tag } from "@taroify/core";
 import { Search } from "@taroify/icons";
@@ -11,6 +11,7 @@ import FilterMenu from "./components/filter-menu";
 import { useEffect } from "react";
 import { getMerchantList } from "../../services";
 import goodsData from "./components/merchant-list/data";
+import { goodModel } from "./components/merchant-list/data";
 
 export default function Index() {
   const [placeholder, setPlaceholder] = useState("请输入商家或商品名称");
@@ -24,6 +25,8 @@ export default function Index() {
   ]);
   const [merchantList, setMerchantList] = useState([]);
   const filterMenuRef = useRef(null);
+  const merchantListRef = useRef(null);
+  const isReachBottom = useRef(false);
 
   useLoad(() => {
     requestIndexData();
@@ -37,6 +40,26 @@ export default function Index() {
     //   console.log(res);
     // });
   }, []);
+
+  const onReachBottom = () => {
+    if (isReachBottom.current) return;
+    isReachBottom.current = true;
+    const mlist = merchantListRef.current;
+    mlist.setLoading(true);
+    setTimeout(() => {
+      if (merchantList.length >= 50) {
+        mlist.setHasMore(false);
+      } else {
+        for (let i = 0; i < 10; i++) {
+          merchantList.push({ ...goodModel });
+        }
+        setMerchantList([...merchantList]);
+        mlist.setHasMore(true);
+      }
+      mlist.setLoading(false);
+      isReachBottom.current = false;
+    }, 1000);
+  };
 
   // 获取首页数据
   const requestIndexData = async () => {
@@ -69,6 +92,7 @@ export default function Index() {
       enableFlex
       scrollY
       onScroll={onContainerScroll}
+      onScrollToLower={onReachBottom}
     >
       <View className="index-container">
         <View className="search-container pd-container">
@@ -97,7 +121,7 @@ export default function Index() {
         {/* <SHot /> */}
         <FilterMenu ref={filterMenuRef} />
         <View className="pd-container">
-          <MerchantList list={merchantList} />
+          <MerchantList ref={merchantListRef} list={merchantList} />
         </View>
       </View>
     </ScrollView>

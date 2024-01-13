@@ -1,36 +1,39 @@
 import { View, Image, Text } from "@tarojs/components";
 import "./index.scss";
-import { useState, useMemo } from "react";
-import { Cell, Empty, Flex, List, Loading } from "@taroify/core";
-import { usePageScroll, useReachBottom } from "@tarojs/taro";
+import {
+  useState,
+  useMemo,
+  useImperativeHandle,
+  forwardRef,
+  useEffect,
+} from "react";
+import { Empty, Flex, List, Loading, Space, Tag } from "@taroify/core";
+import { ArrowDown, ArrowUp } from "@taroify/icons";
+import Taro, { usePageScroll, useReachBottom } from "@tarojs/taro";
+import classNames from "classnames";
 
-export default function MerchantList(props) {
+function MerchantList(props, ref) {
   const list = useMemo(() => props.list || [], [props.list]);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
+  const [expandMap, setExpandMap] = useState(new Map());
   const isEmpty = useMemo(() => props.list.length === 0, [props.list]);
+
+  const expandPanel = (item) => {
+    if (!expandMap.has(item)) {
+      expandMap.set(item, true);
+    } else {
+      expandMap.delete(item);
+    }
+    setExpandMap(new Map(expandMap));
+  };
+
+  useImperativeHandle(ref, () => ({ setLoading, setHasMore }));
 
   usePageScroll(({ scrollTop: aScrollTop }) => {
     setScrollTop(aScrollTop);
   });
-
-  // useReachBottom(() => {
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     if (list.length >= 40) {
-  //       setHasMore(false);
-  //     } else {
-  //       for (let i = 0; i < 10; i++) {
-  //         const text = list.length + 1;
-  //         list.push(text < 10 ? "0" + text : String(text));
-  //       }
-  //       setList([...list]);
-  //       setHasMore(true);
-  //     }
-  //     setLoading(false);
-  //   }, 1000);
-  // });
 
   return isEmpty ? (
     <Empty>
@@ -45,27 +48,30 @@ export default function MerchantList(props) {
       scrollTop={scrollTop}
     >
       {list.map((item) => (
-        // <Cell key={item}>{item}</Cell>
-        <Flex className="merchant-panel" key={item} gutter="10">
-          <Flex.Item span="7">
+        <View
+          className={classNames({
+            "merchant-panel": true,
+            expand: !!expandMap.get(item),
+          })}
+          key={item}
+        >
+          <View className="merchant-img">
             <Image
-              className="merchant-img"
               mode="widthFix"
-              src={require(`/src/assets/goods/goods-img.png`)}
+              // src={require(item.goodImg)}
+              src={require(`/src/assets/goods/goods-img3.png`)}
             />
-          </Flex.Item>
-          <Flex.Item span="17">
-            <View className="merchant-title flex-bc">
-              <View className="flex-sc">
-                {item.hasPromotion && (
-                  <Image
-                    className="ticket"
-                    src={require("/src/assets/merchant/list/quan.png")}
-                    mode="heightFix"
-                  />
-                )}
-                <Text className="title single-line">{item.title}</Text>
-              </View>
+          </View>
+          <View className="merchant-info">
+            <View className="merchant-title flex-sc">
+              {item.hasPromotion && (
+                <Image
+                  className="ticket"
+                  src={require("/src/assets/merchant/list/quan.png")}
+                  mode="heightFix"
+                />
+              )}
+              <Text className="title single-line">{item.title}</Text>
               {item.isGolden && (
                 <Image
                   className="medal"
@@ -75,39 +81,89 @@ export default function MerchantList(props) {
               )}
             </View>
             <View className="merchant-sales flex-bc">
-              <View>
-                <Text>{item.score}分</Text>
+              <Space size={10} align="center">
+                <Text className="score">{item.score}分</Text>
                 <Text>月售{item.salesNumber}</Text>
                 <Text>人均￥{item.aPrice}</Text>
-              </View>
-              <Text>美团快送</Text>
+              </Space>
+              {item.type ? (
+                <Text
+                  className={classNames({
+                    type: true,
+                    "type-fast": item.type === "美团快送",
+                  })}
+                >
+                  {item.type}
+                </Text>
+              ) : null}
             </View>
             <View className="merchant-express flex-bc">
-              <View>
+              <Space size={10} align="center">
                 <Text>起送￥{item.start}</Text>
                 <Text>配送</Text>
                 <Text>约￥{item.expressPrice}</Text>
-              </View>
-              <View>
+              </Space>
+              <Space size={10} align="center">
                 <Text>{item.time}分钟</Text>
                 <Text>{item.distant}km</Text>
-              </View>
+              </Space>
             </View>
-            <View className="merchant-comment">
-              {item.comment.map((item) => (
-                <Text key={item}>{item}</Text>
-              ))}
+            <Space className="merchant-comment" size={10}>
+              {item.comment.map((item) => {
+                if (typeof item === "string") {
+                  return (
+                    <View className="comment-tag" key={item}>
+                      {item}
+                    </View>
+                  );
+                } else {
+                  return (
+                    <View className="comment-tag medal flex-sc" key={item}>
+                      <Image
+                        className="medal-img"
+                        src={require("/src/assets/merchant/list/medal-2.png")}
+                        mode="heightFix"
+                      />
+                      {item.value}
+                    </View>
+                  );
+                }
+              })}
+            </Space>
+            <View
+              className={classNames({
+                "merchant-promotion": true,
+                expand: !!expandMap.get(item),
+              })}
+            >
+              <Space size={10}>
+                {item.promotion &&
+                  item.promotion.length > 0 &&
+                  item.promotion.map((item) => (
+                    <Text className="merchant-promotion-text" key={item}>
+                      {item}
+                    </Text>
+                  ))}
+                {item.promotion2 &&
+                  item.promotion2.length > 0 &&
+                  item.promotion2.map((item) => (
+                    <Text className="merchant-promotion-text" key={item}>
+                      {item}
+                    </Text>
+                  ))}
+              </Space>
+              {item.promotion?.length + item.promotion2?.length > 5 && (
+                <View className="expand-btn" onClick={() => expandPanel(item)}>
+                  {expandMap.get(item) ? (
+                    <ArrowUp className="arrow" />
+                  ) : (
+                    <ArrowDown className="arrow" />
+                  )}
+                </View>
+              )}
             </View>
-            <View className="merchant-promotion">
-              {item.promotion &&
-                item.promotion.length > 0 &&
-                item.promotion.map((item) => <Text key={item}>{item}</Text>)}
-              {item.promotion2 &&
-                item.promotion2.length > 0 &&
-                item.promotion2.map((item) => <Text key={item}>{item}</Text>)}
-            </View>
-          </Flex.Item>
-        </Flex>
+          </View>
+        </View>
       ))}
       <List.Placeholder>
         {loading && <Loading>加载中...</Loading>}
@@ -116,3 +172,5 @@ export default function MerchantList(props) {
     </List>
   );
 }
+
+export default forwardRef(MerchantList);

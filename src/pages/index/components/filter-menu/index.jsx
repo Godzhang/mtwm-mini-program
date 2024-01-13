@@ -66,7 +66,6 @@ const FilterMenu = forwardRef((props, ref) => {
           ))}
           <Tag style={{ opacity: 0 }}></Tag>
         </ScrollView>
-        {/* TODO: fix后按钮消失问题 */}
         <View className="menu-icon-bg">
           <WapNav className="menu-icon" />
         </View>

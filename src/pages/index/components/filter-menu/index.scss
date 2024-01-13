@@ -1,34 +1,40 @@
 $filter-menu-height: 60px;
+$filter-padding-y: 20px;
 
 @mixin bgTranstion($attr: color, $duration: 0.5s) {
   transition: background-#{$attr} $duration;
 }
 
 .filter-menu-container {
+  width: 750px;
+  height: calc($filter-menu-height + $filter-padding-y * 2);
 }
 .filter-menu {
+  display: flex;
+  align-items: center;
   position: relative;
+  width: 100%;
   height: $filter-menu-height;
-  padding: 20px 0;
+  padding: $filter-padding-y 0;
+  background-color: #f6f6f6;
   @include bgTranstion;
 }
 .quick-tags {
-  position: relative;
-  width: 92%;
-  height: 100%;
-  padding: 0 24px;
-  white-space: nowrap;
   display: flex;
   align-items: center;
+  position: relative;
+  white-space: nowrap;
+  width: 90%;
+  height: 100%;
 }
 .tag {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
   width: 120px;
   height: $filter-menu-height;
+  line-height: $filter-menu-height;
   padding: 0 30px;
-  margin-right: 20px;
+  margin-left: 24px;
   font-size: 24px;
   background-color: #fff;
   color: #666;
@@ -40,14 +46,13 @@ $filter-menu-height: 60px;
 .menu-icon-bg {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 24px;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  // TODO: icon位置调整
-  width: 12%;
+  width: 75px;
   height: $filter-menu-height;
-  transform: translateY(-50%);
   background-image: linear-gradient(
     to left,
     #f6f6f6 0% 60%,
@@ -56,7 +61,6 @@ $filter-menu-height: 60px;
   @include bgTranstion("image");
 }
 .menu-icon {
-  margin: 0 15px 0 0;
   font-size: 30px;
   font-weight: bold;
 }
