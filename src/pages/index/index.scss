@@ -19,8 +19,8 @@ $index-radius: 60px;
     background-image: linear-gradient(
       to bottom,
       #fff 0%,
-      #f6f6f6 350px,
-      #f6f6f6 100%
+      $mt-page-bg-color 350px,
+      $mt-page-bg-color 100%
     );
     overflow: hidden;
   }
@@ -38,18 +38,18 @@ $index-radius: 60px;
   overflow: hidden;
   &-icon {
     margin-left: 20px;
-    color: #999;
+    color: $mt-text-gray;
   }
   &-text {
     flex: 1;
     padding: 0 10px;
-    color: #999;
+    color: $mt-text-gray;
     font-size: 24px;
   }
   &-btn {
     height: 100%;
     padding: 0 28px;
-    color: #333;
+    color: $mt-text-color;
     border-radius: $index-radius;
     background-color: $mt-color;
     font-size: 26px;
@@ -61,7 +61,7 @@ $index-radius: 60px;
   margin-top: 15px;
   &-item {
     background-color: #f1f1f1;
-    color: #333;
+    color: $mt-text-color;
   }
   &-item + &-item {
     margin-left: 15px;

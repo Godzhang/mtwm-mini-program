@@ -6,6 +6,12 @@
 //     Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif !important;
 // }
 
+.flex-ss {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .flex-sc {
   display: flex;
   justify-content: flex-start;
@@ -22,6 +28,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.flex-col-ss {
+  @extend .flex-ss;
+  flex-direction: column;
+
 }
 
 .single-line {
