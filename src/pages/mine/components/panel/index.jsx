@@ -4,17 +4,16 @@ import { useMemo } from "react";
 import { Space } from "@taroify/core";
 
 export default function Panel(props) {
-  const title = useMemo(() => props.title || "", [props.title]);
-
-  const renderHeaderRight = () => {
-    return <Text>213</Text>;
-  };
+  const headerClass = useMemo(
+    () => ["header", "flex-bc", props.headerClass].join(" "),
+    [props.headerClass]
+  );
 
   return (
-    <View className="panel">
-      <View className="header flex-bc">
-        <Text className="title">{title}</Text>
-        <View className="handler">{renderHeaderRight()}</View>
+    <View className={["panel", props.className].join(" ")}>
+      <View className={headerClass}>
+        <View className="title">{props.title}</View>
+        <View>{props.headerRight}</View>
       </View>
       <View className="content">{props.children}</View>
     </View>

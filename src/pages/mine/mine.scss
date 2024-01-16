@@ -1,7 +1,21 @@
 .mine-container {
   background-color: $mt-page-bg-color;
 }
-.wrapper {
+.mine-wrapper {
   height: 3000px;
   padding: 24px;
+}
+.mine-card {
+  margin-top: 20px;
+}
+/* purse */
+.my-purse-panel-header {
+  align-items: flex-end;
+}
+.add-purse {
+  font-size: 24px;
+  color: #666;
+  &-text {
+    margin-right: 5px;
+  }
 }

@@ -4,6 +4,7 @@ export default defineAppConfig({
     "pages/index/index",
     "pages/order/order",
     "pages/mine/mine",
+    "pages/userset/userset",
     "pages/search/search",
   ],
   window: {
