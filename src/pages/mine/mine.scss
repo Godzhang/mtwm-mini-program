@@ -2,12 +2,32 @@
   background-color: $mt-page-bg-color;
 }
 .mine-wrapper {
-  height: 3000px;
+  min-height: 100vh;
   padding: 24px;
 }
 .mine-card {
   margin-top: 20px;
 }
+
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  width: 25%;
+  height: 80px;
+  &-img{width: 40px;height: 40px;}
+  &-text {
+    font-size: 20px;
+  }
+}
+
 /* purse */
 .my-purse-panel-header {
   align-items: flex-end;

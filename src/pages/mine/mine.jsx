@@ -1,14 +1,20 @@
-import { View, Text, Navigator } from "@tarojs/components";
+import { View, Text, Navigator, Image } from "@tarojs/components";
 import { useLoad } from "@tarojs/taro";
 import { Arrow } from "@taroify/icons";
 import "./mine.scss";
 import { Space } from "@taroify/core";
 import MineLogin from "./components/login";
 import Panel from "./components/panel";
+import { abilityData, recommendData } from "./data";
+import { useState } from "react";
 
 export default function Mine() {
+  const [isLoading, setIsloading] = useState(true);
+
+  const requestData = () => {};
+
   useLoad(() => {
-    console.log("mine Page loaded.");
+    requestData();
   });
 
   return (
@@ -34,7 +40,24 @@ export default function Mine() {
           ></Panel>
         </View>
         <View className="mine-card">
-          <Panel title="我的功能"></Panel>
+          <Panel title="我的功能">
+            <View className="menu-list">
+              {abilityData.map((item) => (
+                <Navigator
+                  className="menu-item"
+                  key={item.label}
+                  url={item.router}
+                >
+                  <Image
+                    mode="aspectFit"
+                    className="menu-item-img"
+                    src={item.icon}
+                  />
+                  <Text className="menu-item-text">{item.label}</Text>
+                </Navigator>
+              ))}
+            </View>
+          </Panel>
         </View>
         <View className="mine-card">
           <Panel title="更多推荐"></Panel>
