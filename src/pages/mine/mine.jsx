@@ -7,6 +7,8 @@ import MineLogin from "./components/login";
 import Panel from "./components/panel";
 import { abilityData, recommendData } from "./data";
 import { useState } from "react";
+import MyProperty from "./components/property";
+import MyCollection from "./components/collection";
 
 export default function Mine() {
   const [isLoading, setIsloading] = useState(true);
@@ -17,15 +19,28 @@ export default function Mine() {
     requestData();
   });
 
+  const renderPanelMenu = (data) => {
+    return (
+      <View className="menu-list">
+        {data.map((item) => (
+          <Navigator className="menu-item" key={item.label} url={item.router}>
+            <Image mode="aspectFit" className="menu-item-img" src={item.icon} />
+            <Text className="menu-item-text">{item.label}</Text>
+          </Navigator>
+        ))}
+      </View>
+    );
+  };
+
   return (
     <View className="mine-container">
       <View className="mine-wrapper">
         <MineLogin />
         <View className="mine-card">
-          <Panel title="我的资产"></Panel>
+          <MyProperty></MyProperty>
         </View>
         <View className="mine-card">
-          <Panel title="我的收藏"></Panel>
+          <MyCollection></MyCollection>
         </View>
         <View className="mine-card">
           <Panel
@@ -40,27 +55,10 @@ export default function Mine() {
           ></Panel>
         </View>
         <View className="mine-card">
-          <Panel title="我的功能">
-            <View className="menu-list">
-              {abilityData.map((item) => (
-                <Navigator
-                  className="menu-item"
-                  key={item.label}
-                  url={item.router}
-                >
-                  <Image
-                    mode="aspectFit"
-                    className="menu-item-img"
-                    src={item.icon}
-                  />
-                  <Text className="menu-item-text">{item.label}</Text>
-                </Navigator>
-              ))}
-            </View>
-          </Panel>
+          <Panel title="我的功能">{renderPanelMenu(abilityData)}</Panel>
         </View>
         <View className="mine-card">
-          <Panel title="更多推荐"></Panel>
+          <Panel title="更多推荐">{renderPanelMenu(recommendData)}</Panel>
         </View>
       </View>
     </View>
