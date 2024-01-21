@@ -5,7 +5,7 @@ import "./mine.scss";
 import { Space } from "@taroify/core";
 import MineLogin from "./components/login";
 import Panel from "./components/panel";
-import { abilityData, recommendData } from "./data";
+import { abilityData, recommendData, noLoginProperties } from "./data";
 import { useState } from "react";
 import MyProperty from "./components/property";
 import MyCollection from "./components/collection";
@@ -37,7 +37,7 @@ export default function Mine() {
       <View className="mine-wrapper">
         <MineLogin />
         <View className="mine-card">
-          <MyProperty></MyProperty>
+          <MyProperty noLoginData={noLoginProperties}></MyProperty>
         </View>
         <View className="mine-card">
           <MyCollection></MyCollection>

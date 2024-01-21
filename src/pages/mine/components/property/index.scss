@@ -1,0 +1,17 @@
+.my-property {
+}
+.nologin-item {
+  width: 33.33%;
+  height: 40px;
+  line-height: 40px;
+  &:nth-child(n+4) {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  &-img {
+    width: 35px;
+  }
+  &-text {
+    margin-left: 15px;
+  }
+}
