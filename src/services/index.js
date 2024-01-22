@@ -5,6 +5,6 @@ export const getMerchantList = () => {
   return get(URLS.MERCHANT_LIST);
 };
 
-export const login = (code) => {
-  return post(URLS.LOGIN, { code });
+export const weChatLogin = (code) => {
+  return post(URLS.WE_LOGIN, { code });
 };

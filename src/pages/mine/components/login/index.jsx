@@ -3,11 +3,15 @@ import { SettingOutlined } from "@taroify/icons";
 import "./index.scss";
 import { useState, useMemo } from "react";
 import Taro from "@tarojs/taro";
-import { login } from "@/services";
+import { weChatLogin } from "@/services";
 import { showErrorToast } from "../../../../utils/utils";
+import { TOKEN_KEY } from "../../../../global";
+import { observer } from "mobx-react";
+import { useRootStore } from "../../../../store";
 
-export default function MineLogin() {
-  const [isLogin, setIsLogin] = useState(false);
+function MineLogin() {
+  const { authStore } = useRootStore();
+  const { isLogin, login: authLogin } = authStore;
   const userInfo = useMemo(() => {
     return isLogin
       ? {
@@ -19,12 +23,14 @@ export default function MineLogin() {
         };
   }, [isLogin]);
 
-  const weLogin = () => {
-    // setIsLogin(true);
+  const login = () => {
+    // authLogin();
     Taro.login({
-      success(res) {
+      async success(res) {
         if (res.code) {
-          login(res.code);
+          console.log("res.code:", res.code);
+          const loginRes = await weChatLogin(res.code);
+          console.log("loginRes:", loginRes);
         } else {
           showErrorToast("登录失败！" + res.errMsg);
         }
@@ -40,7 +46,7 @@ export default function MineLogin() {
         {isLogin ? (
           <Text className="username">{userInfo.username}</Text>
         ) : (
-          <Text className="username" onClick={weLogin}>
+          <Text className="username" onClick={login}>
             登录 / 注册
           </Text>
         )}
@@ -51,3 +57,5 @@ export default function MineLogin() {
     </View>
   );
 }
+
+export default observer(MineLogin);

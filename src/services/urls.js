@@ -4,7 +4,7 @@ const resolve = (url) => `${WxApiRoot}/${url}`;
 
 const URLS = {
   // auth
-  LOGIN: resolve("weapp/login"),
+  WE_LOGIN: resolve("auth/login"),
   // data
   MERCHANT_LIST: resolve("merchant/list"),
 };

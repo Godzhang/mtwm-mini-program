@@ -6,25 +6,21 @@ export const noLoginProperties = [
       require("/src/assets/mine-icon/hongbao.png"),
       require("/src/assets/mine-icon/shenquan.png"),
     ],
-    width: "40%",
     router: "",
   },
   {
     label: "代金券",
     icon: require("/src/assets/mine-icon/daijinquan.png"),
-    width: "40%",
     router: "",
   },
   {
     label: "津贴",
     icon: require("/src/assets/mine-icon/jintie.png"),
-    width: "20%",
     router: "",
   },
   {
     label: "神抢手券",
     icon: require("/src/assets/mine-icon/qiangshou.png"),
-    width: "40%",
     router: "",
   },
 ];

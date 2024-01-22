@@ -2,24 +2,30 @@ import { Image, Text, View } from "@tarojs/components";
 import Panel from "../panel";
 import "./index.scss";
 import { useMemo } from "react";
-import useLogin from "../../../../hooks/useLogin";
-import { Grid } from "@taroify/core";
+import classNames from "classnames";
+import { useRootStore } from "../../../../store";
+import { observer } from "mobx-react";
 
-export default function MyProperty(props) {
-  const isLogin = useLogin();
+function MyProperty(props) {
+  const { authStore } = useRootStore();
+  const { isLogin } = authStore;
   const noLoginData = useMemo(() => props.noLoginData, [props.noLoginData]);
+  const columns = 3;
 
   return (
     <Panel title="我的资产" className="my-property">
       {isLogin ? (
-        <View className="flex-sc">已登录</View>
+        <View className="flex-sc-wrap">已登录</View>
       ) : (
         <View className="flex-sc-wrap">
-          {noLoginData.map((item) => (
+          {noLoginData.map((item, i) => (
             <View
-              className="nologin-item flex-sc"
+              className={classNames({
+                "nologin-item": true,
+                "flex-sc": i % columns === 0,
+                "flex-cc": i % columns !== 0,
+              })}
               key={item.label}
-              style={{ width: item.width }}
             >
               {typeof item.icon === "string" ? (
                 <Image
@@ -42,3 +48,5 @@ export default function MyProperty(props) {
     </Panel>
   );
 }
+
+export default observer(MyProperty);
