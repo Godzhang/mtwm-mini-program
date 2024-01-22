@@ -13,6 +13,7 @@ $index-radius: 60px;
   background-color: $mt-color;
   font-family: PingFangSC-Regular, PingFang SC;
   .index-container {
+    position: relative;
     padding: 24px 0;
     border-top-left-radius: $index-radius;
     border-top-right-radius: $index-radius;

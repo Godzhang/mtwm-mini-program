@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { getMerchantList } from "../../services";
 import goodsData from "./components/merchant-list/data";
 import { goodModel } from "./components/merchant-list/data";
+import NavBar from "../../components/navbar";
 
 export default function Index() {
   const [placeholder, setPlaceholder] = useState("请输入商家或商品名称");
@@ -87,43 +88,46 @@ export default function Index() {
   };
 
   return (
-    <ScrollView
-      className="index-wrapper"
-      enableFlex
-      scrollY
-      onScroll={onContainerScroll}
-      onScrollToLower={onReachBottom}
-    >
-      <View className="index-container">
-        <View className="search-container pd-container">
-          <View className="search-bar" onClick={navigateToSearch}>
-            <Search className="search-bar-icon" />
-            <Text className="search-bar-text">{placeholder}</Text>
-            <View className="search-bar-btn">搜索</View>
+    <View>
+      <NavBar />
+      <ScrollView
+        className="index-wrapper"
+        enableFlex
+        scrollY
+        onScroll={onContainerScroll}
+        onScrollToLower={onReachBottom}
+      >
+        <View className="index-container">
+          <View className="search-container pd-container">
+            <View className="search-bar" onClick={navigateToSearch}>
+              <Search className="search-bar-icon" />
+              <Text className="search-bar-text">{placeholder}</Text>
+              <View className="search-bar-btn">搜索</View>
+            </View>
+            <View className="search-tags">
+              {searchTags.map((tag) => (
+                <Tag
+                  className="search-tags-item"
+                  shape="rounded"
+                  size="medium"
+                  key={tag}
+                  onClick={() => navigateToSearch(tag)}
+                >
+                  {tag}
+                </Tag>
+              ))}
+            </View>
           </View>
-          <View className="search-tags">
-            {searchTags.map((tag) => (
-              <Tag
-                className="search-tags-item"
-                shape="rounded"
-                size="medium"
-                key={tag}
-                onClick={() => navigateToSearch(tag)}
-              >
-                {tag}
-              </Tag>
-            ))}
+          <View className="pd-container">
+            <NavMenu />
+          </View>
+          {/* <SHot /> */}
+          <FilterMenu ref={filterMenuRef} />
+          <View className="pd-container">
+            <MerchantList ref={merchantListRef} list={merchantList} />
           </View>
         </View>
-        <View className="pd-container">
-          <NavMenu />
-        </View>
-        {/* <SHot /> */}
-        <FilterMenu ref={filterMenuRef} />
-        <View className="pd-container">
-          <MerchantList ref={merchantListRef} list={merchantList} />
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }
