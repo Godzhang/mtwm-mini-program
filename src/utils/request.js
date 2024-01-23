@@ -2,15 +2,22 @@ import Taro from "@tarojs/taro";
 import { showErrorToast } from "./utils";
 
 export const request = (url, data = {}, method = "GET", config = {}) => {
+  const header = {
+    "Content-Type": "application/json",
+    ...config,
+  };
+
+  const token = Taro.getStorageSync("token");
+  if (token) {
+    header["Authorization"] = `Bearer ${token}`;
+  }
+
   return new Promise((resolve, reject) => {
     Taro.request({
       url,
       data,
       method: method.toUpperCase(),
-      header: {
-        "Content-Type": "application/json",
-        ...config,
-      },
+      header,
       success: function (res) {
         const { statusCode, data } = res;
         if (statusCode === 200) {

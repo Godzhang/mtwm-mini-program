@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  entryPagePath: "pages/index/index",
+  entryPagePath: "pages/mine/mine",
   pages: [
     "pages/index/index",
     "pages/order/order",

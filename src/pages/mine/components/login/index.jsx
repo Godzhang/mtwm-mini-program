@@ -23,20 +23,13 @@ function MineLogin() {
         };
   }, [isLogin]);
 
-  const login = () => {
-    // authLogin();
-    Taro.login({
-      async success(res) {
-        if (res.code) {
-          console.log("res.code:", res.code);
-          const loginRes = await weChatLogin(res.code);
-          console.log("loginRes:", loginRes);
-        } else {
-          showErrorToast("登录失败！" + res.errMsg);
-        }
-      },
-      fail() {},
-    });
+  const login = async () => {
+    try {
+      await authLogin();
+      // Taro.reLaunch(当前页面);
+    } catch (error) {
+      showErrorToast(error.message || error.msg || error);
+    }
   };
 
   return (
