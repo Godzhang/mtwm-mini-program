@@ -1,4 +1,6 @@
-const requirePath = (name) => require(`/src/assets/nav-menu-icon/${name}`);
+import { getAssetPathByPrefix } from "../../../../utils/utils";
+
+const requirePath = getAssetPathByPrefix("/nav-menu-icon/");
 
 export const mainMenu = [
   {

@@ -1,4 +1,11 @@
 import Taro from "@tarojs/taro";
+import { config } from "../config";
+
+const { assetBaseUrl } = config;
+
+export const getAssetPath = (path) => `${assetBaseUrl}${path}`;
+export const getAssetPathByPrefix = (prefix) => (path) =>
+  `${assetBaseUrl}${prefix}${path}`; // 需要一个类似于path.join的方法
 
 export function showErrorToast(msg = "error") {
   Taro.showToast({

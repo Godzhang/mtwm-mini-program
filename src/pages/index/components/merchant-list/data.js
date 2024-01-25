@@ -1,6 +1,10 @@
+import { config } from "../../../../config";
+
+const { assetBaseUrl } = config;
+
 const goodsData = [
   {
-    goodImg: "/src/assets/goods/goods-img.png",
+    goodImg: assetBaseUrl + "/goods/goods-img.png",
     title: "同庆楼|中华老字号",
     score: "4.7",
     salesNumber: "1000+",
@@ -35,7 +39,7 @@ const goodsData = [
             comment: "90%",
             price: "8",
             tag: "门店销量第2名",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
           {
             name: "虾仁蒸蛋（位）",
@@ -43,7 +47,7 @@ const goodsData = [
             comment: "100%",
             price: "5",
             tag: '`"鲜嫩爽滑"`',
-            goodImg: "/src/assets/shop/goods2.png",
+            goodImg: assetBaseUrl + "/shop/goods2.png",
           },
         ],
       },
@@ -58,7 +62,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "招聘红烧肉",
@@ -66,7 +70,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -74,7 +78,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "湖南辣椒炒肉",
@@ -82,7 +86,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "招聘烤鸭",
@@ -90,7 +94,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "烤脆皮鸡",
@@ -98,7 +102,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "老谭酸菜鱼）",
@@ -106,7 +110,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
         ],
       },
@@ -121,7 +125,7 @@ const goodsData = [
             comment: "100%",
             price: "32",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "招聘红烧肉",
@@ -129,7 +133,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -137,7 +141,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
           {
             name: "湖南辣椒炒肉",
@@ -145,7 +149,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods2.png",
+            goodImg: assetBaseUrl + "/shop/goods2.png",
           },
         ],
       },
@@ -160,7 +164,7 @@ const goodsData = [
             comment: "100%",
             price: "32",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "湖南小炒肉",
@@ -168,7 +172,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -176,7 +180,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
         ],
       },
@@ -191,7 +195,7 @@ const goodsData = [
             comment: "100%",
             price: "32",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "湖南小炒肉",
@@ -199,7 +203,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -207,7 +211,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
         ],
       },
@@ -222,7 +226,7 @@ const goodsData = [
             comment: "100%",
             price: "32",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "湖南小炒肉",
@@ -230,7 +234,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -238,7 +242,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
         ],
       },
@@ -253,7 +257,7 @@ const goodsData = [
             comment: "100%",
             price: "32",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "湖南小炒肉",
@@ -261,7 +265,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -269,7 +273,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
         ],
       },
@@ -284,7 +288,7 @@ const goodsData = [
             comment: "100%",
             price: "32",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "湖南小炒肉",
@@ -292,7 +296,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -300,7 +304,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
         ],
       },
@@ -315,7 +319,7 @@ const goodsData = [
             comment: "100%",
             price: "32",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "湖南小炒肉",
@@ -323,7 +327,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -331,7 +335,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
         ],
       },
@@ -346,7 +350,7 @@ const goodsData = [
             comment: "100%",
             price: "32",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "湖南小炒肉",
@@ -354,7 +358,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
           {
             name: "深井烤鸭（中份）",
@@ -362,7 +366,7 @@ const goodsData = [
             comment: "90%",
             price: "28",
             tag: "",
-            goodImg: "/src/assets/shop/goods1.png",
+            goodImg: assetBaseUrl + "/shop/goods1.png",
           },
         ],
       },
@@ -377,7 +381,7 @@ const goodsData = [
             comment: "100%",
             price: "2",
             tag: "",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "扬州炒饭",
@@ -385,7 +389,7 @@ const goodsData = [
             comment: "100%",
             price: "15",
             tag: "",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
         ],
       },
@@ -400,7 +404,7 @@ const goodsData = [
             comment: "100%",
             price: "4",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods4.png",
+            goodImg: assetBaseUrl + "/shop/goods4.png",
           },
           {
             name: "水晶蒸虾饺皇",
@@ -408,7 +412,7 @@ const goodsData = [
             comment: "100%",
             price: "9",
             tag: "店内好评第1名",
-            goodImg: "/src/assets/shop/goods3.png",
+            goodImg: assetBaseUrl + "/shop/goods3.png",
           },
         ],
       },
@@ -468,7 +472,7 @@ const goodsData = [
     isGolden: true,
   },
   {
-    goodImg: "/src/assets/goods/goods-img2.png",
+    goodImg: assetBaseUrl + "/goods/goods-img2.png",
     title: "鲜丰水果",
     score: "4.9",
     salesNumber: "1000+",
@@ -485,7 +489,7 @@ const goodsData = [
     promotion: ["0.01元爆品", "56折起"],
   },
   {
-    goodImg: "/src/assets/goods/goods-img3.png",
+    goodImg: assetBaseUrl + "/goods/goods-img3.png",
     title: "顺旺基",
     score: "4.4",
     salesNumber: "3000+",
@@ -499,7 +503,7 @@ const goodsData = [
     promotion2: ["28减2", "39减5", "65减8"],
   },
   {
-    goodImg: "/src/assets/goods/goods-img3.png",
+    goodImg: assetBaseUrl + "/goods/goods-img3.png",
     title: "顺旺基2",
     score: "4.4",
     salesNumber: "3000+",
@@ -513,7 +517,7 @@ const goodsData = [
     promotion2: ["28减2", "39减5", "65减8"],
   },
   {
-    goodImg: "/src/assets/goods/goods-img3.png",
+    goodImg: assetBaseUrl + "/goods/goods-img3.png",
     title: "顺旺基3",
     score: "4.4",
     salesNumber: "3000+",
@@ -527,7 +531,7 @@ const goodsData = [
     promotion2: ["28减2", "39减5", "65减8"],
   },
   {
-    goodImg: "/src/assets/goods/goods-img3.png",
+    goodImg: assetBaseUrl + "/goods/goods-img3.png",
     title: "顺旺基4",
     score: "4.4",
     salesNumber: "3000+",
@@ -541,7 +545,7 @@ const goodsData = [
     promotion2: ["28减2", "39减5", "65减8"],
   },
   {
-    goodImg: "/src/assets/goods/goods-img3.png",
+    goodImg: assetBaseUrl + "/goods/goods-img3.png",
     title: "顺旺基5",
     score: "4.4",
     salesNumber: "3000+",
@@ -555,7 +559,7 @@ const goodsData = [
     promotion2: ["28减2", "39减5", "65减8"],
   },
   {
-    goodImg: "/src/assets/goods/goods-img3.png",
+    goodImg: assetBaseUrl + "/goods/goods-img3.png",
     title: "顺旺基6",
     score: "4.4",
     salesNumber: "3000+",
@@ -569,7 +573,7 @@ const goodsData = [
     promotion2: ["28减2", "39减5", "65减8"],
   },
   {
-    goodImg: "/src/assets/goods/goods-img3.png",
+    goodImg: assetBaseUrl + "/goods/goods-img3.png",
     title: "顺旺基7",
     score: "4.4",
     salesNumber: "3000+",
@@ -583,7 +587,7 @@ const goodsData = [
     promotion2: ["28减2", "39减5", "65减8"],
   },
   {
-    goodImg: "/src/assets/goods/goods-img3.png",
+    goodImg: assetBaseUrl + "/goods/goods-img3.png",
     title: "顺旺基8",
     score: "4.4",
     salesNumber: "3000+",
@@ -599,7 +603,7 @@ const goodsData = [
 ];
 
 export const goodModel = {
-  goodImg: "/src/assets/goods/goods-img3.png",
+  goodImg: assetBaseUrl + "/goods/goods-img3.png",
   title: "顺旺基8",
   score: "4.4",
   salesNumber: "3000+",
