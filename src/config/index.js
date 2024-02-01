@@ -1,6 +1,6 @@
-const WxApiRoot = "http://39.107.159.90:8002";
+const host = "http://39.107.159.90";
 
 export const config = {
-  WxApiRoot,
-  assetBaseUrl: WxApiRoot,
+  WxApiRoot: `${host}/api`,
+  assetBaseUrl: `${host}/mtwm`,
 };
