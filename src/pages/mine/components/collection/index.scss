@@ -1,0 +1,16 @@
+.login-box {
+}
+
+.no-login-box {
+  .collection-tip {
+    font-size: 26px;
+    color: #999;
+  }
+  .collection-btn {
+    background-color: $mt-color;
+    border-color: $mt-color;
+    color: #333;
+    border-radius: 15px;
+    font-weight: bold;
+  }
+}

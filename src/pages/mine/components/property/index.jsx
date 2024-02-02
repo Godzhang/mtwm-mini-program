@@ -3,12 +3,11 @@ import Panel from "../panel";
 import "./index.scss";
 import { useMemo } from "react";
 import classNames from "classnames";
-import { useRootStore } from "../../../../store";
 import { observer } from "mobx-react";
+import useLogin from "@/hooks/useLogin";
 
 function MyProperty(props) {
-  const { authStore } = useRootStore();
-  const { isLogin } = authStore;
+  const isLogin = useLogin();
   const noLoginData = useMemo(() => props.noLoginData, [props.noLoginData]);
   const columns = 3;
 
