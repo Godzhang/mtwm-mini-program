@@ -8,9 +8,10 @@ import { TOKEN_KEY } from "../../../../global";
 import { observer } from "mobx-react";
 import { useRootStore } from "../../../../store";
 
-function MineLogin() {
+function MineLogin(props) {
   const { authStore } = useRootStore();
   const { isLogin, login: authLogin } = authStore;
+  const { setLoading } = props;
   const userInfo = useMemo(() => {
     return isLogin
       ? {
@@ -24,7 +25,9 @@ function MineLogin() {
 
   const login = async () => {
     try {
+      setLoading(true);
       await authLogin();
+      setLoading(false);
       // Taro.reLaunch(当前页面);
     } catch (error) {
       showErrorToast(error.message || error.msg || error);

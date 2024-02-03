@@ -2,16 +2,16 @@ import { View, Text, Navigator, Image } from "@tarojs/components";
 import { useLoad } from "@tarojs/taro";
 import { Arrow } from "@taroify/icons";
 import "./mine.scss";
-import { Space } from "@taroify/core";
 import MineLogin from "./components/login";
 import Panel from "./components/panel";
 import { abilityData, recommendData, noLoginProperties } from "./data";
 import { useState } from "react";
 import MyProperty from "./components/property";
 import MyCollection from "./components/collection";
+import MTLoading from "@/components/loading";
 
 export default function Mine() {
-  const [isLoading, setIsloading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
 
   const requestData = () => {};
 
@@ -35,7 +35,7 @@ export default function Mine() {
   return (
     <View className="mine-container">
       <View className="mine-wrapper">
-        <MineLogin />
+        <MineLogin setLoading={setLoading} />
         <View className="mine-card">
           <MyProperty noLoginData={noLoginProperties}></MyProperty>
         </View>
@@ -61,6 +61,7 @@ export default function Mine() {
           <Panel title="更多推荐">{renderPanelMenu(recommendData)}</Panel>
         </View>
       </View>
+      <MTLoading open={isLoading}></MTLoading>
     </View>
   );
 }

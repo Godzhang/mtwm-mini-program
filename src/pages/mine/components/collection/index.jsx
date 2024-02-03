@@ -12,7 +12,7 @@ function MyCollection() {
   return (
     <Panel className="my-collection" title="我的收藏">
       {isLogin ? (
-        <View className="login-box"></View>
+        <View className="login-box">已登录</View>
       ) : (
         <View className="no-login-box flex-bc">
           <Text className="collection-tip">
