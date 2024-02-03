@@ -1,6 +1,7 @@
 import Taro from "@tarojs/taro";
 import { makeAutoObservable } from "mobx";
 import { TOKEN_KEY } from "../global";
+import { weChatLogin } from "@/services";
 import { showErrorToast } from "../utils/utils";
 
 class AuthStore {
@@ -16,12 +17,12 @@ class AuthStore {
   login() {
     return new Promise((resolve, reject) => {
       Taro.login({
-        async success(res) {
+        success: (res) => {
           if (res.code) {
-            const token = await weChatLogin(res.code);
-            Taro.setStorageSync(TOKEN_KEY, token);
-            this.setToken(token);
-            resolve();
+            weChatLogin(res.code).then((token) => {
+              this.setToken(token);
+              resolve();
+            });
           } else {
             showErrorToast("登录失败" + res.errMsg);
             reject({ message: "登录失败" });
@@ -45,6 +46,13 @@ class AuthStore {
       Taro.removeStorageSync(TOKEN_KEY);
     } else {
       Taro.setStorageSync(TOKEN_KEY, t);
+    }
+  }
+
+  checkLogin() {
+    const token = Taro.getStorageSync(TOKEN_KEY);
+    if (token) {
+      this.token = token;
     }
   }
 }

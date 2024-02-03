@@ -3,7 +3,6 @@ import { SettingOutlined } from "@taroify/icons";
 import "./index.scss";
 import { useState, useMemo } from "react";
 import Taro from "@tarojs/taro";
-import { weChatLogin } from "@/services";
 import { showErrorToast } from "../../../../utils/utils";
 import { TOKEN_KEY } from "../../../../global";
 import { observer } from "mobx-react";

@@ -23,7 +23,7 @@ function MyCollection() {
             variant="contained"
             color="primary"
             icon={<Plus />}
-            size="small"
+            size="mini"
           >
             添加收藏
           </Button>
