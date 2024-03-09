@@ -56,7 +56,8 @@
       padding: 2px 10px;
       font-size: 18px;
       color: #333;
-      background-image: linear-gradient(to right, rgb(250, 227, 118), rgb(226,189,128));
+      background-image: linear-gradient(to right, lighten($mt-color, 25%), $mt-color);
+      // background-image: linear-gradient(to right, rgb(250, 227, 118), rgb(226,189,128));
       border-radius: 8px;
     }
     .type-fast {

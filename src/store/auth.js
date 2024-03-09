@@ -19,10 +19,16 @@ class AuthStore {
       Taro.login({
         success: (res) => {
           if (res.code) {
-            weChatLogin(res.code).then((token) => {
-              this.setToken(token);
+            // weChatLogin(res.code).then((token) => {
+            //   this.setToken(token);
+            //   resolve();
+            // });
+            setTimeout(() => {
+              // this.setToken("jjhodsaifhfjeuifhoi");
+              this.token = "jjhodsaifhfjeuifhoi";
+              Taro.setStorageSync(TOKEN_KEY, this.token);
               resolve();
-            });
+            }, 1500);
           } else {
             showErrorToast("登录失败" + res.errMsg);
             reject({ message: "登录失败" });

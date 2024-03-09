@@ -89,7 +89,7 @@ export default function Index() {
 
   return (
     <View>
-      <NavBar />
+      {/* <NavBar /> */}
       <ScrollView
         className="index-wrapper"
         enableFlex

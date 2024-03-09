@@ -1,4 +1,4 @@
 export default definePageConfig({
   navigationBarTitleText: "",
-  navigationStyle: "custom",
+  // navigationStyle: "custom",
 });

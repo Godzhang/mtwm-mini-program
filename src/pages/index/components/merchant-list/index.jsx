@@ -90,7 +90,7 @@ function MerchantList(props, ref) {
                 <Text
                   className={classNames({
                     type: true,
-                    "type-fast": item.type === "美团快送",
+                    "type-fast": item.type === "可橙快送",
                   })}
                 >
                   {item.type}
