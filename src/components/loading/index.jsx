@@ -15,7 +15,7 @@ export default function MTLoading(props) {
   );
 
   useEffect(() => {
-    setOpen(props.open);
+    setOpen(!!props.open);
   }, [props.open]);
 
   return (

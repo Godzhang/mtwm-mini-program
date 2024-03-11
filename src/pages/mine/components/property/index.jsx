@@ -14,7 +14,7 @@ function MyProperty(props) {
   return (
     <Panel title="我的资产" className="my-property">
       {isLogin ? (
-        <View className="flex-sc-wrap">已登录</View>
+        <View className="flex-sc-wrap">我的资产</View>
       ) : (
         <View className="flex-sc-wrap">
           {noLoginData.map((item, i) => (

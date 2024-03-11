@@ -66,9 +66,10 @@ const FilterMenu = forwardRef((props, ref) => {
           ))}
           <Tag style={{ opacity: 0 }}></Tag>
         </ScrollView>
-        <View className="menu-icon-bg">
+        {/* 临时注释 */}
+        {/* <View className="menu-icon-bg">
           <WapNav className="menu-icon" />
-        </View>
+        </View> */}
       </View>
     </View>
   );

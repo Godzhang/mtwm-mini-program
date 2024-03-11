@@ -15,30 +15,33 @@ class AuthStore {
   }
 
   login() {
-    return new Promise((resolve, reject) => {
-      Taro.login({
-        success: (res) => {
-          if (res.code) {
-            // weChatLogin(res.code).then((token) => {
-            //   this.setToken(token);
-            //   resolve();
-            // });
-            setTimeout(() => {
-              // this.setToken("jjhodsaifhfjeuifhoi");
-              this.token = "jjhodsaifhfjeuifhoi";
-              Taro.setStorageSync(TOKEN_KEY, this.token);
-              resolve();
-            }, 1500);
-          } else {
-            showErrorToast("登录失败" + res.errMsg);
-            reject({ message: "登录失败" });
-          }
-        },
-        fail(reason) {
-          reject(reason);
-        },
-      });
-    });
+    this.setToken("jjhodsaifhfjeuifhoi");
+    // return new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     try {
+    //       this.setToken("jjhodsaifhfjeuifhoi");
+    //     } catch (e) {
+    //       console.info(e);
+    //     }
+    //     resolve();
+    //   }, 1500);
+    //   // Taro.login({
+    //   //   success: (res) => {
+    //   //     if (res.code) {
+    //   //       weChatLogin(res.code).then((token) => {
+    //   //         this.setToken(token);
+    //   //         resolve();
+    //   //       });
+    //   //     } else {
+    //   //       showErrorToast("登录失败" + res.errMsg);
+    //   //       reject({ message: "登录失败" });
+    //   //     }
+    //   //   },
+    //   //   fail(reason) {
+    //   //     reject(reason);
+    //   //   },
+    //   // });
+    // });
   }
 
   logout() {
@@ -48,7 +51,7 @@ class AuthStore {
 
   setToken(t) {
     this.token = t;
-    if (t == null) {
+    if (t === null) {
       Taro.removeStorageSync(TOKEN_KEY);
     } else {
       Taro.setStorageSync(TOKEN_KEY, t);

@@ -39,11 +39,9 @@ export default function Mine() {
         <View className="mine-card">
           <MyProperty noLoginData={noLoginProperties}></MyProperty>
         </View>
+        <View className="mine-card">{/* <MyCollection></MyCollection> */}</View>
         <View className="mine-card">
-          <MyCollection></MyCollection>
-        </View>
-        <View className="mine-card">
-          <Panel
+          {/* <Panel
             title="我的钱包"
             headerClass="my-purse-panel-header"
             headerRight={
@@ -52,13 +50,13 @@ export default function Mine() {
                 <Arrow />
               </Navigator>
             }
-          ></Panel>
+          ></Panel> */}
         </View>
         <View className="mine-card">
-          <Panel title="我的功能">{renderPanelMenu(abilityData)}</Panel>
+          {/* <Panel title="我的功能">{renderPanelMenu(abilityData)}</Panel> */}
         </View>
         <View className="mine-card">
-          <Panel title="更多推荐">{renderPanelMenu(recommendData)}</Panel>
+          {/* <Panel title="更多推荐">{renderPanelMenu(recommendData)}</Panel> */}
         </View>
       </View>
       <MTLoading open={isLoading}></MTLoading>

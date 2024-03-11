@@ -1,14 +1,15 @@
 import Taro, { useLoad } from "@tarojs/taro";
 import "./order.scss";
 import OrderLogin from "./components/login";
+import { useState } from "react";
 
 export default function Order() {
-  useLoad(() => {});
+  const [isLogin, setIsLogin] = useState(false);
 
   const onScroll = (e) => {};
 
   return (
-    <OrderLogin />
+    <OrderLogin login={isLogin} loginChange={setIsLogin} />
     // <ScrollView
     //   scrollY
     //   className="order-page"
