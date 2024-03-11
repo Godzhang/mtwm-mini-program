@@ -1,5 +1,6 @@
 export default defineAppConfig({
   entryPagePath: "pages/index/index",
+  lazyCodeLoading: "requiredComponents",
   pages: [
     "pages/index/index",
     "pages/order/order",
